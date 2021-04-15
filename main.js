@@ -1,11 +1,9 @@
-var canvas = new fabric.Canvas('canvas');
 
-var rect = new fabric.Rect({
-    top : 100,
-    left : 100,
-    width : 60,
-    height : 70,
-    fill : 'red'
-});
-
-canvas.add(rect);
+function currentTime() {
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("date-time").innerHTML = m + "/" + d + "/" + y;
+    console.log(n);
+}
