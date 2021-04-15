@@ -91,11 +91,14 @@ body {
 
 /* from: https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/ */
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;
-    background: black;
-    opacity: 0.5;
-
+    height: 100px;
+    background: rgb(88, 88, 88);
+    /* opacity: 0.5; */
+    align-items: center;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    display: inline-block;
   }
