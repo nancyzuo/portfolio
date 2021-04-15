@@ -47,28 +47,42 @@ body {
 
   /* from: https://www.w3schools.com/howto/howto_js_draggable.asp */
 
-  #mydiv {
+ #folder-work {
     position: absolute;
     z-index: 9;
     text-align: center;
     color: white;
   }
   
-  #mydivheader {
+#folder-work-header {
     padding: 10px;
     z-index: 10;
     color: #fff;
     cursor: grab;
   }
 
-  #mydiv-2 {
+#folder-play {
     position: absolute;
     z-index: 9;
     text-align: center;
     color: white;
   }
   
-  #mydivheader-2 {
+ #folder-play-header {
+    padding: 10px;
+    z-index: 10;
+    color: #fff;
+    cursor: grab;
+  }
+
+  #resume {
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+    color: white;
+  }
+
+  #resume-header {
     padding: 10px;
     z-index: 10;
     color: #fff;
