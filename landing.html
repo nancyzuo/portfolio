@@ -4,9 +4,35 @@
         <title>Nancy Zuo</title>
         <link rel="shortcut icon" type="image/jpg" href="images/mushroom.png"/>
         <link rel="stylesheet" href="styles.css">
+        <script src="js/fabric.js" type="text/javascript"></script>
+
+        <!-- from: https://github.com/VincentGarreau/particles.js/ -->
+        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
     </header>
+
     <body>
-        <a href="index.html">enter</a>
+        
+
+        <!-- from: https://www.youtube.com/watch?v=qK3cgD09Qf0 -->
+        <div id="particles-js"></div>
+            <div id="login">
+                <form>
+                    <div>
+                        <label for="password">Nancy Zuo</label>
+                        <br><br>
+                        <input type="text" placeholder="Password">
+                        <a href="index.html"><img src="images/icons/arrow-right-circle-outline.png"></a>
+                    </div>
+                </form>
+
+            </div>
+        <script>
+            particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('callback - particles.js config loaded');
+            });
+        </script>
+
     </body>
 
 </html>
