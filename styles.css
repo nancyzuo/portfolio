@@ -133,23 +133,57 @@ canvas {
   background-repeat: no-repeat;
 }
 
+
 #login {
   /* background: #fff; */
   opacity: 0.9;
-  padding: 2em;
   position: absolute;
-  top: 150px;
-  left: 400px;
   font-family: Lucida Grande;
   z-index: 10;
+  top: 50%;
+  left: 50%;
   text-align: center;
   border-radius: 10px;
   color: white;
+  /* to center fully: https://stackoverflow.com/questions/19461521/how-to-center-an-element-horizontally-and-vertically#:~:text=For%20vertical%20alignment%2C%20set%20the,any%20other%20inline%20children%20elements. */
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 
-#login input[type="text"] {
+#login input[type="password"] {
   padding: 10px;
   margin-bottom: 10px;
   opacity: 0.5;
   font-family: Lucida Grande;
+  border-radius: 50px;
+  border:0px solid white;
+  outline: none;
+}
+
+/* follow mouse from: https://www.youtube.com/watch?v=NSmZM89YCfE */
+.wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+#ball {
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 20;
+  margin: -10px 0 0 -10px;
+  pointer-events: none;
+  /* glow effect for mouse: https://codersblock.com/blog/creating-glow-effects-with-css/ */
+  box-shadow:
+  0 0 10px 3px rgb(255, 255, 255); 
 }
