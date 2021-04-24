@@ -1,15 +1,53 @@
-* {
+/* * {
     font-family: Lucida Grande;
-}
+} */
 
 a {
   margin: 0px;
   padding: 0px;
+  font-family: Lucida Grande;
 }
 
 body {
-    background-color: #858585;
+    background-image: url("https://i.redd.it/ylubgrztirp11.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    /* background-color: #858585; */
     margin: 0px; /* remove default padding  */
+}
+
+.landing {
+    background-image: url("https://i.redd.it/ylubgrztirp11.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    /* background-color: #858585; */
+    margin: 0px; /* remove default padding  */
+}
+
+.desktop {
+    background-image: url("https://wallpaperaccess.com/full/2159858.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    /* background-color: #858585; */
+    margin: 0px; /* remove default padding  */
+}
+
+
+/* from: https://blog.prototypr.io/how-to-make-a-background-blur-in-css-with-one-line-of-code-e446c7236e60#:~:text=If%20you%20want%20the%20blur,value%20of%20blur(8px)%20. */
+.blur {
+  background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(6px); 
+  height: 100vh;
+	width: 100%;
 }
 
 /* from: https://www.w3schools.com/howto/howto_css_fixed_menu.asp */
@@ -21,7 +59,7 @@ body {
     position: fixed; /* Set the navbar to fixed position */
     top: 0px; 
     width: 100%; /* Full width */
-    opacity: 0.75;
+    opacity: 0.8;
     z-index: 10;
   }
   
@@ -138,7 +176,9 @@ canvas {
   /* background: #fff; */
   opacity: 0.9;
   position: absolute;
-  font-family: Lucida Grande;
+  font-family: Helvetica Neue;
+  font-size: larger;
+  text-shadow: 1px 1px 5px rgb(56, 56, 56);
   z-index: 10;
   top: 50%;
   left: 50%;
@@ -159,6 +199,11 @@ canvas {
   border-radius: 50px;
   border:0px solid white;
   outline: none;
+  box-shadow: 1px 1px 20px rgb(56, 56, 56);
+}
+
+.enter-arrow img {
+  display: inline-block;
 }
 
 /* follow mouse from: https://www.youtube.com/watch?v=NSmZM89YCfE */

@@ -1,4 +1,6 @@
-<!--    ------------
+<!DOCTYPE html>
+<!--------------
+      ______________
      /  (_)_   _    \
   /)      (_) (_)      \
  |       _          _   |
@@ -9,12 +11,13 @@
           |      |
           |      |
           |      |
-           \____/  i am a mushroom >:D -->
-<!DOCTYPE html>
+           \____/  
+           
+           i am a mushroom >:D -->
 <html lang="en">
     <head>
         <title>Nancy Zuo</title>
-        <link rel="shortcut icon" type="image/jpg" href="images/icons/apple.png"/>
+        <link rel="shortcut icon" type="image/png" href="images/icons/apple.png"/>
         <link rel="stylesheet" href="styles.css">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -23,7 +26,7 @@
       
     </head>
     <!-- follow mouse from: https://www.youtube.com/watch?v=NSmZM89YCfE -->
-    <body onload="followMouse();">
+    <body class="desktop" onload="followMouse();">
         <div class="wrap">
             <div id="ball"></div>
        </div>
@@ -83,7 +86,48 @@
                 <a href="https://www.instagram.com/nc.zuo/" target="_blank"><img src="images/icons/instagram.png"></a>
                 <a href="https://www.linkedin.com/in/nancyzuo" target="_blank"><img src="images/icons/linkedin.png"></a>
                 <a href="mailto:nzzuo@andrew.cmu.edu" target="_blank"><img src="images/icons/email.png"></a>
-                <a href="#" class="dropdown">Wed Apr 14 8:38 PM</a>
+                <a href="#" id="current-date" class="dropdown"></a> <!--adds current date here from below script-->
+
+                <script>
+                    // from: https://stackoverflow.com/questions/10211145/getting-current-date-and-time-in-javascript
+                    var myDate = new Date();
+
+                    let daysList = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat'];
+                    let monthsList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Aug', 'Oct', 'Nov', 'Dec'];
+
+
+                    let date = myDate.getDate();
+                    let month = monthsList[myDate.getMonth()];
+                    // let year = myDate.getFullYear();
+                    let day = daysList[myDate.getDay()];
+
+                    let today = `${day} ${month} ${date}`;
+
+                    let amOrPm;
+                    let twelveHours = function (){
+                        if(myDate.getHours() > 12)
+                        {
+                            amOrPm = 'PM';
+                            let twentyFourHourTime = myDate.getHours();
+                            let conversion = twentyFourHourTime - 12;
+                            return `${conversion}`
+                        } else if (myDate.getHours() == 12) 
+                        {
+                        amOrPm = 'PM';
+                        return `${myDate.getHours()}`
+                        } else {
+                            amOrPm = 'AM';
+                            return `${myDate.getHours()}`}
+                    };
+                    let hours = twelveHours();
+                    let minutes = myDate.getMinutes();
+
+                    let currentTime = `${hours}:${minutes} ${amOrPm}`;
+
+                    document.getElementById("current-date").innerHTML = today + ' ' + currentTime;
+
+                    console.log(today + ' ' + currentTime);
+                </script>
 
             </div>
             
@@ -95,20 +139,20 @@
         // group for work folder
         var canvas = new fabric.Canvas('c10');
         var rect = new fabric.Rect({ left: 110, top: 110, fill: 'black', width: 100, height: 80, stroke: 'white', strokeWidth: 2, rx:5, ry:5 });
-        var text = new fabric.Text('work', {fill: "black", fontFamily: "Lucida Grande", fontSize: 14, left: 160, top: 210, originX: 'center', originY: 'center'});
+        var text = new fabric.Text('Work', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 160, top: 210, originX: 'center', originY: 'center'});
         var group = new fabric.Group([rect, text], {left: 110, top: 110});
 
         canvas.add(group);
 
         // group for play folder
         var rect2 = new fabric.Rect({ left: 110, top: 240, fill: 'black', width: 100, height: 80, stroke: 'white', strokeWidth: 2, rx:5, ry:5 });
-        var text2 = new fabric.Text('play', {fill: "black", fontFamily: "Lucida Grande", fontSize: 14, left: 160, top: 340, originX: 'center', originY: 'center'});
+        var text2 = new fabric.Text('Play', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 160, top: 340, originX: 'center', originY: 'center'});
         var group2 = new fabric.Group([rect2, text2], {left: 110, top: 240});
         canvas.add(group2);
 
         // group for resume
         var rect3 = new fabric.Rect({ left: 110, top: 370, fill: 'black', width: 100, height: 80, stroke: 'white', strokeWidth: 2, rx:5, ry:5 });
-        var text3 = new fabric.Text('resume', {fill: "black", fontFamily: "Lucida Grande", fontSize: 14, left: 160, top: 470, originX: 'center', originY: 'center'});
+        var text3 = new fabric.Text('Resume', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 160, top: 470, originX: 'center', originY: 'center'});
         var group3 = new fabric.Group([rect3, text3], {left: 110, top: 370});
         canvas.add(group3);
 
@@ -171,53 +215,49 @@
 
         </script>
 
-
-
-
-       
           <!-- from: https://stackoverflow.com/questions/51409650/javascript-how-to-make-multiple-divs-draggable-and-movable-across-the-website -->
-<script>
-          var draggableElements = document.getElementsByClassName("draggable");
+        <script>
+            var draggableElements = document.getElementsByClassName("draggable");
 
-for(var i = 0; i < draggableElements.length; i++){
-    dragElement(draggableElements[i]);
-}
+            for(var i = 0; i < draggableElements.length; i++){
+                dragElement(draggableElements[i]);
+            }
 
-function dragElement(elmnt) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    if (document.getElementById(elmnt.id + "header")) {
-        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-    } else {
-        elmnt.onmousedown = dragMouseDown;
-    }
-    function dragMouseDown(e) {
-        e = e || window.event;
-        pos3 = parseInt(e.clientX);
-        pos4 = parseInt(e.clientY);
-        document.onmouseup = closeDragElement;
-        document.onmousemove = elementDrag;
-        return false;
-    }
+            function dragElement(elmnt) {
+                var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                if (document.getElementById(elmnt.id + "header")) {
+                    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+                } else {
+                    elmnt.onmousedown = dragMouseDown;
+                }
+                function dragMouseDown(e) {
+                    e = e || window.event;
+                    pos3 = parseInt(e.clientX);
+                    pos4 = parseInt(e.clientY);
+                    document.onmouseup = closeDragElement;
+                    document.onmousemove = elementDrag;
+                    return false;
+                }
 
-    function elementDrag(e) {
-        e = e || window.event;
-        pos1 = pos3 - parseInt(e.clientX);
-        pos2 = pos4 - parseInt(e.clientY);
-        pos3 = parseInt(e.clientX);
-        pos4 = parseInt(e.clientY);
-        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-        console.log(elmnt.offsetTop)
-        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-    }
+                function elementDrag(e) {
+                    e = e || window.event;
+                    pos1 = pos3 - parseInt(e.clientX);
+                    pos2 = pos4 - parseInt(e.clientY);
+                    pos3 = parseInt(e.clientX);
+                    pos4 = parseInt(e.clientY);
+                    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                    console.log(elmnt.offsetTop)
+                    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                }
 
-    function closeDragElement() {
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }
-}
-</script>
+                function closeDragElement() {
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+            }
+        </script>
      
    
-</body>
+    </body>
 
 </html>

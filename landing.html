@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <header>
-        <title>Nancy Zuo</title>
-        <link rel="shortcut icon" type="image/jpg" href="images/mushroom.png"/>
+        <title>nancy zuo</title>
+        <link rel="shortcut icon" type="image/jpg" href="images/icons/apple.png"/>
         <link rel="stylesheet" href="styles.css">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -10,12 +10,19 @@
 
         <!-- from: https://github.com/VincentGarreau/particles.js/ -->
         <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
         
+        <script>
+            function pageRedirect() {
+                window.location.href = "index.html";
+            }      
+            setTimeout("pageRedirect()", 5000);
+        </script>
     </header>
 
-    <body onload="followMouse();">
+    <body class="landing" onload="followMouse();">
+        <div class="blur"> <!--adding blur to background-->
         
+        <!-- adding custom mouse circle -->
         <div class="wrap">
             <div id="ball"></div>
        </div>
@@ -66,22 +73,24 @@
         <!-- from: https://www.youtube.com/watch?v=qK3cgD09Qf0 -->
         <div id="particles-js"></div>
             <div id="login">
+                <img src="images/vaporwave.png" width="40%" height="40%"><br/>
                 <form>
                     <div>
-                        <label for="password">Nancy Zuo</label>
+                        <label for="password"><strong>Nancy Zuo</strong></label>
                         <br><br>
                         <input type="password" id="pass" placeholder="Password">
-                        <a href="index.html"><img src="images/icons/arrow-right-circle-outline.png"></a>
-                    </div>
+                        <!-- <a href="index.html"><img class="enter-arrow" src="images/icons/arrow-right-circle-outline.png"></a> -->
+
+                    </div> 
                 </form>
 
             </div>
-        <script>
+        <!-- <script>
             particlesJS.load('particles-js', 'particles.json', function() {
             console.log('callback - particles.js config loaded');
             });
-        </script>
-
+        </script> -->
+        </div>
     </body>
 
 </html>
