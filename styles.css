@@ -60,7 +60,7 @@ body {
     top: 0px; 
     width: 100%; /* Full width */
     opacity: 0.8;
-    z-index: 10;
+    z-index: 2;
   }
   
   /* Links inside the navbar */
@@ -98,42 +98,42 @@ body {
 
  #folder-work {
     position: absolute;
-    z-index: 9;
+    z-index: 3;
     text-align: center;
     color: white;
   }
   
 #folder-work-header {
     padding: 10px;
-    z-index: 10;
+    z-index: 3;
     color: #fff;
     cursor: grab;
   }
 
 #folder-play {
     position: absolute;
-    z-index: 9;
+    z-index: 3;
     text-align: center;
     color: white;
   }
   
  #folder-play-header {
     padding: 10px;
-    z-index: 10;
+    z-index: 3;
     color: #fff;
     cursor: grab;
   }
 
   #resume {
     position: absolute;
-    z-index: 9;
+    z-index: 3;
     text-align: center;
     color: white;
   }
 
   #resume-header {
     padding: 10px;
-    z-index: 10;
+    z-index: 3;
     color: #fff;
     cursor: grab;
   }
@@ -231,4 +231,57 @@ canvas {
   /* glow effect for mouse: https://codersblock.com/blog/creating-glow-effects-with-css/ */
   box-shadow:
   0 0 10px 3px rgb(255, 255, 255); 
+}
+
+/* from: https://www.youtube.com/watch?v=iE_6pQ3RlZU */
+
+.popup .overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  /* background: rgba(0,0,0,0.7); */
+  z-index: 5;
+  display: none;
+}
+
+.popup .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%, -50%) scale(0);
+  background: gray;
+  width: 450px;
+  height: 220px;
+  z-index: 6;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Helvetica Neue;
+}
+
+.popup .close-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 7;
+}
+
+.popup.active .overlay {
+  display: block;
+}
+
+.popup.active .content {
+  transition: all 300ms ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
 }

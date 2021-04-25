@@ -192,7 +192,8 @@
         canvas.on('mouse:dblclick', function(e) {
             // clicking on this is opens new tab for 'play'
             if (e.target.top === 110) { 
-                window.open('https://nancyzuo.me/work','_blank')
+                // window.open('https://nancyzuo.me/work','_blank')
+                togglePopup();
             // clicking on this opens new tab for 'play'
             } else if (e.target.top === 240) {
                 window.open('https://nancyzuo.me/play','_blank')
@@ -256,7 +257,23 @@
                 }
             }
         </script>
-     
+    
+        <!-- from: https://www.youtube.com/watch?v=iE_6pQ3RlZU -->
+        <div class="popup" id="popup-1">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn">&times;</div>
+                <h1>werk</h1>
+                <p>lorem ipsums :D</p>
+            </div>
+        </div>
+
+        <!-- <button onclick="togglePopup();">Show Popup</button> -->
+        <script>
+            function togglePopup() {
+                document.getElementById("popup-1").classList.toggle("active");
+            }
+        </script>
    
     </body>
 
