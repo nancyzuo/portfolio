@@ -26,12 +26,12 @@
       
     </head>
     <!-- follow mouse from: https://www.youtube.com/watch?v=NSmZM89YCfE -->
-    <body class="desktop" onload="followMouse();">
-        <div class="wrap">
+    <body class="desktop">
+        <!-- <div class="wrap">
             <div id="ball"></div>
-       </div>
+       </div> -->
   
-       <script type="text/javascript">
+       <!-- <script type="text/javascript">
   
        var $ = document.querySelector.bind(document);
        var $on = document.addEventListener.bind(document);
@@ -73,12 +73,12 @@
        };
   
        </script>
-        
+         -->
         <div class="navbar">
             <div class="navbar-left">
                 <a href="desktop.html"><img src="images/icons/apple.png"></a>
                 <a href="desktop.html" class="dropdown"><strong>Nancy</strong></a>
-                <a href="#about" class="dropdown">About</a>
+                <a href="#about" onclick="togglePopup3('nancyOS');" class="dropdown">About</a>
                 
             </div>
             <div class="navbar-right">
@@ -133,91 +133,147 @@
             
           </div>
          
-        <canvas id="c10" width="1400" height="600"></canvas>
+        <canvas id="c10" width="1400" height="800"></canvas>
 
         <script>
         // group for work folder
         var canvas = new fabric.Canvas('c10');
-        var rect = new fabric.Rect({ left: 110, top: 110, fill: 'black', width: 100, height: 80, stroke: 'white', strokeWidth: 2, rx:5, ry:5 });
+        var rect = new fabric.Rect({ left: 110, top: 110, width: 100, height: 80, rx:5, ry:5, fill:"#FCEDE8"});
         var text = new fabric.Text('Work', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 160, top: 210, originX: 'center', originY: 'center'});
-        var group = new fabric.Group([rect, text], {left: 110, top: 110});
+        var group = new fabric.Group([rect, text], {left: 110, top: 110, lockMovementX: true, lockMovementY: true});
 
         canvas.add(group);
 
         // group for play folder
-        var rect2 = new fabric.Rect({ left: 110, top: 240, fill: 'black', width: 100, height: 80, stroke: 'white', strokeWidth: 2, rx:5, ry:5 });
+        var rect2 = new fabric.Rect({ left: 110, top: 240, width: 100, height: 80, fill:"#FCEDE8", rx:5, ry:5 });
         var text2 = new fabric.Text('Play', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 160, top: 340, originX: 'center', originY: 'center'});
-        var group2 = new fabric.Group([rect2, text2], {left: 110, top: 240});
+        var group2 = new fabric.Group([rect2, text2], {left: 110, top: 240, lockMovementX: true, lockMovementY: true});
         canvas.add(group2);
 
         // group for resume
-        var rect3 = new fabric.Rect({ left: 110, top: 370, fill: 'black', width: 100, height: 80, stroke: 'white', strokeWidth: 2, rx:5, ry:5 });
-        var text3 = new fabric.Text('Resume', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 160, top: 470, originX: 'center', originY: 'center'});
-        var group3 = new fabric.Group([rect3, text3], {left: 110, top: 370});
+        var rect3 = new fabric.Rect({ left: 110, top: 370, fill: 'pink', width: 100, height: 80, fill:"#FCEDE8", rx:5, ry:5 });
+        var text3 = new fabric.Text('Nancy_Resume.pdf', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 160, top: 470, originX: 'center', originY: 'center'});
+        var group3 = new fabric.Group([rect3, text3], {left: 110, top: 370, lockMovementX: true, lockMovementY: true});
         canvas.add(group3);
+
+        // group for postit
+        // var rect4 = new fabric.Rect({ left: 1000, top: 370, fill: 'white', width: 200, height: 180, strokeWidth: 2, rx:2, ry:2 });
+        // var text4 = new fabric.Text('about me', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 1100, top: 410, originX: 'center', originY: 'center'});
+        // var group4 = new fabric.Group([rect4, text4], {left: 1000, top: 370});
+        // canvas.add(group4);
+
+        fabric.Image.fromURL('images/icons/foldericon.png', function(img1) {
+        //i create an extra var for to change some image properties
+        // var img1 = myImg.set({ left: 1000, top: 370 ,width:150,height:150})
+            img1.set({
+                left: 110,
+                top: 110,
+                lockMovementX: true, 
+                lockMovementY: true,
+                hasControls: false,
+                hasBorders: false
+            });
+            img1.scaleToHeight(80);
+            img1.scaleToHeight(80);
+            canvas.add(img1);
+        });
+
+        fabric.Image.fromURL('images/icons/foldericon.png', function(img2) {
+        //i create an extra var for to change some image properties
+        // var img1 = myImg.set({ left: 1000, top: 370 ,width:150,height:150})
+            img2.set({
+                left: 110,
+                top: 240,
+                lockMovementX: true, 
+                lockMovementY: true,
+                hasControls: false,
+                hasBorders: false
+            });
+            img2.scaleToHeight(80);
+            img2.scaleToHeight(80);
+            canvas.add(img2);
+        });
+
+
+        fabric.Image.fromURL('images/icons/pdf.png', function(img3) {
+        //i create an extra var for to change some image properties
+        // var img1 = myImg.set({ left: 1000, top: 370 ,width:150,height:150})
+            img3.set({
+                left: 140,
+                top: 370,
+                lockMovementX: true, 
+                lockMovementY: true,
+                hasControls: false,
+                hasBorders: false
+            });
+            img3.scaleToHeight(80);
+            img3.scaleToHeight(80);
+            canvas.add(img3);
+        });
 
         canvas.forEachObject(function(o){ o.hasBorders = o.hasControls = false; });
 
         canvas.hoverCursor = 'pointer';
 
-        function animate(e, dir) {
-            if (e.target) {
-            fabric.util.animate({
-                // startValue: e.target.get('angle'),
-                // endValue: e.target.get('angle') + (dir ? 10 : -10),
-                duration: 100,
-                onChange: function(value) {
-                // e.target.setAngle(value);
-                canvas.renderAll();
-                },
-                onComplete: function() {
-                e.target.setCoords();
-                }
-            });
-            fabric.util.animate({
-                startValue: e.target.get('scaleX'),
-                endValue: e.target.get('scaleX') + (dir ? 0.1 : -0.1),
-                duration: 100,
-                onChange: function(value) {
-                e.target.scale(value);
-                canvas.renderAll();
-                },
-                onComplete: function() {
-                e.target.setCoords();
-                }
-            });
-            }
-        }
+
+        // function animate(e, dir) {
+        //     if (e.target) {
+        //     fabric.util.animate({
+        //         // startValue: e.target.get('angle'),
+        //         // endValue: e.target.get('angle') + (dir ? 10 : -10),
+        //         duration: 100,
+        //         onChange: function(value) {
+        //         // e.target.setAngle(value);
+        //         canvas.renderAll();
+        //         },
+        //         onComplete: function() {
+        //         e.target.setCoords();
+        //         }
+        //     });
+        //     fabric.util.animate({
+        //         startValue: e.target.get('scaleX'),
+        //         endValue: e.target.get('scaleX') + (dir ? 0.1 : -0.1),
+        //         duration: 100,
+        //         onChange: function(value) {
+        //         e.target.scale(value);
+        //         canvas.renderAll();
+        //         },
+        //         onComplete: function() {
+        //         e.target.setCoords();
+        //         }
+        //     });
+        //     }
+        // }
+        // object.on('mouse:down', function(opt) {
+        //     // inside opt you found `e`
+        //     // you should be able to calculate where you clicked
+        //     var pointClicked = opt.target.canvas.getPointer(opt.e);
+        //     console.log(pointClicked);
+        // });
 
         canvas.on('mouse:dblclick', function(e) {
             // clicking on this is opens new tab for 'play'
             if (e.target.top === 110) { 
                 // window.open('https://nancyzuo.me/work','_blank')
-                togglePopup();
+                togglePopup("work");
             // clicking on this opens new tab for 'play'
             } else if (e.target.top === 240) {
-                window.open('https://nancyzuo.me/play','_blank')
+                togglePopup2("play");
+                // window.open('https://nancyzuo.me/play','_blank')
             } else if (e.target.top === 370) {
+                // togglePopup("resume");
                 window.open('https://nancyzuo.me/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc9c6f3c8-dbac-4ecf-889a-56b3e05af70e%2FZuo_Nancy_Mar2021.pdf?table=block&id=7f6fe330-ff48-40e2-8a9a-64a2f47e157a&name=Nancy_Zuo_Resume.pdf&cache=v2', '_blank')
             }
 
         })
 
-        
-
-        canvas.on('mouse:down', function(e) { 
-            animate(e, 1); 
-        });
-        canvas.on('mouse:up', function(e) { 
-            animate(e, 0); 
-        });
-        // this.__canvases.push(canvas);
+    
         canvas.renderAll()
 
         </script>
 
           <!-- from: https://stackoverflow.com/questions/51409650/javascript-how-to-make-multiple-divs-draggable-and-movable-across-the-website -->
-        <script>
+        <!-- <script>
             var draggableElements = document.getElementsByClassName("draggable");
 
             for(var i = 0; i < draggableElements.length; i++){
@@ -255,26 +311,76 @@
                     document.onmouseup = null;
                     document.onmousemove = null;
                 }
+
+                
             }
         </script>
-    
+     -->
         <!-- from: https://www.youtube.com/watch?v=iE_6pQ3RlZU -->
         <div class="popup" id="popup-1">
             <div class="overlay"></div>
             <div class="content">
-                <div class="close-btn">&times;</div>
-                <h1>werk</h1>
-                <p>lorem ipsums :D</p>
+                <div class="close-btn" onclick="togglePopup();">&times;</div>
+                <h2 id="folder-title"></h2>
+                <!-- <p id="folder-description"></p> -->
+                <div class="row">
+                    <div class="column">
+                        <div id="project-picture-1"></div>
+                        <div id="project-name-1"></div>
+                    </div>
+                    <div class="column">
+                        <div id="project-picture-2"></div>
+                        <div id="project-name-2"></div>
+                    </div>
+                    <div class="column">
+                        <div id="project-picture-3"></div>
+                        <div id="project-name-3"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="picture"></div>
+                </div>
+                
+              
+               
+       
             </div>
         </div>
 
-        <!-- <button onclick="togglePopup();">Show Popup</button> -->
         <script>
-            function togglePopup() {
+            function togglePopup(title) {
                 document.getElementById("popup-1").classList.toggle("active");
+                document.getElementById("folder-title").innerHTML = title;
+                document.getElementById("project-picture-1").innerHTML="<img src=\"images/catiator.png\" width=\"60%\" height=\"60%\">";
+                document.getElementById("project-name-1").innerHTML="<span><a href = 'https://devpost.com/software/catiator'  target= '_blank'>catiator</a></span>"
+                document.getElementById("project-picture-2").innerHTML="<img src=\"images/paperairplane.png\" width=\"80%\" height=\"80%\">";
+                document.getElementById("project-name-2").innerHTML="<span><a href = 'https://devpost.com/software/intarnet'  target= '_blank'>intARnet</a></span>"
+                document.getElementById("project-picture-3").innerHTML="<img src=\"images/buffmushroom.png\" width=\"100%\" height=\"100%\">";
+                document.getElementById("project-name-3").innerHTML="<span><a href = 'https://devpost.com/software/test-yotepg'  target= '_blank'>lARp</a></span>"
+            }
+            function togglePopup2(title) {
+                document.getElementById("popup-1").classList.toggle("active");
+                document.getElementById("folder-title").innerHTML = title;
+                document.getElementById("project-picture-1").innerHTML="<img src=\"images/icons/palette.png\" width=\"60%\" height=\"60%\">";
+                document.getElementById("project-name-1").innerHTML="<span><a href = 'https://nancyzuo.me/99-Ranch-Mother-s-Day-Contest-77a2071772674e9fa305a30137194642'  target= '_blank'>art contests</a></span>"
+                document.getElementById("project-picture-2").innerHTML="<img src=\"images/icons/shirt.png\" width=\"80%\" height=\"80%\">";
+                document.getElementById("project-name-2").innerHTML="<span><a href = 'https://nancyzuo.me/Merchandise-546c3e2cc19b458f94ea777ffa78ed74'  target= '_blank'>merch</a></span>"
+                document.getElementById("project-picture-3").innerHTML="<img src=\"images/icons/photo.png\" width=\"100%\" height=\"100%\">";
+                document.getElementById("project-name-3").innerHTML="<span><a href = 'https://nancyzuo.me/Flyer-Designs-39bc8770adbc4725867856676cc5fcdb'  target= '_blank'>fliers</a></span>"
+            }
+            function togglePopup3(title) {
+                document.getElementById("popup-1").classList.toggle("active");
+                document.getElementById("folder-title").innerHTML = title;
+                document.getElementById("project-picture-1").innerHTML="<h3> studying </h3>";
+                document.getElementById("project-name-1").innerHTML="<p style=\"font-size: smaller\";> IS + HCI + Design <br> <strong>@Carnegie Mellon</strong> </p>"
+                document.getElementById("project-picture-2").innerHTML="<h3> currently </h3>";
+                document.getElementById("project-name-2").innerHTML="Instructional Design @ State Farm"
+                document.getElementById("project-picture-3").innerHTML="<h3> previously </h3>";
+                document.getElementById("project-name-3").innerHTML="Instructor @ iD Tech Camps"
+                document.getElementById("picture").innerHTML="<img src=\"images/deadnancy.png\" width=\"80%\" height=\"80%\">";
             }
         </script>
-   
+        
     </body>
 
 </html>
