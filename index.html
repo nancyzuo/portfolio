@@ -2,15 +2,12 @@
 <html lang="en">
     <header>
         <title>nancy zuo</title>
-        <link rel="shortcut icon" type="images/icons/png" href="images/icons/apple.png"/>
+        <link rel="shortcut icon" type="images/png" href="images/icons/apple.png"/>
         <link rel="stylesheet" href="styles.css">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <script src="js/fabric.js" type="text/javascript"></script>
-
-        <!-- from: https://github.com/VincentGarreau/particles.js/ -->
-        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-        
+        <!-- if need to redirect page without password after time setting, uncomment below code -->
         <!-- <script>
             function pageRedirect() {
                 window.location.href = "desktop.html";
@@ -22,63 +19,16 @@
 
     <body class="landing">
         <div class="blur"> <!--adding blur to background-->
-        
-        <!-- adding custom mouse circle -->
-        <!-- <div class="wrap">
-            <div id="ball"></div>
-       </div> -->
-  
-       <!-- <script type="text/javascript">
-  
-       var $ = document.querySelector.bind(document);
-       var $on = document.addEventListener.bind(document);
-  
-       var xmouse, ymouse;
-       $on('mousemove', function (e) {
-            xmouse = e.clientX || e.pageX;
-            ymouse = e.clientY || e.pageY;
-       });
-  
-       var ball = $('#ball');
-       var x = void 0,
-            y = void 0,
-            dx = void 0,
-            dy = void 0,
-            tx = 0,
-            ty = 0,
-            key = -1;
-  
-       var followMouse = function followMouse() {
-            key = requestAnimationFrame(followMouse);
-  
-            if(!x || !y) {
-                 x = xmouse;
-                 y = ymouse;
-            } else {
-                 dx = (xmouse - x) * 0.125;
-                 dy = (ymouse - y) * 0.125;
-                 if(Math.abs(dx) + Math.abs(dy) < 0.1) {
-                      x = xmouse;
-                      y = ymouse;
-                 } else {
-                      x += dx;
-                      y += dy;
-                 }
-            }
-            ball.style.left = x + 'px';
-            ball.style.top = y + 'px';
-       };
-  
-       </script> -->
 
         <!-- from: https://www.youtube.com/watch?v=qK3cgD09Qf0 -->
-        <div id="particles-js"></div>
+        <div></div>
             <div id="login">
                 <img src="images/vaporwave.png" width="40%" height="40%"><br/>
                 <form>
                     <div>
                         <label for="password"><strong>Nancy Zuo</strong></label>
                         <br><br>
+                        <!-- users input any password to "login" and enter site -->
                         <input type="password" id="pass" placeholder="Enter Anything">
                         <div id="enter"><a href="desktop.html"><img class="enter-arrow" src="images/icons/arrow-right-circle-outline.png"></a></div>
 
@@ -86,14 +36,9 @@
                 </form>
 
             </div>
-        <!-- <script>
-            particlesJS.load('particles-js', 'particles.json', function() {
-            console.log('callback - particles.js config loaded');
-            });
-        </script> -->
         </div>
         <footer>
-            made with 🤍 by <strong>nancy.</strong>
+            made with 🤍 by <strong>nancy zuo. </strong>
         </footer>
     </body>
 

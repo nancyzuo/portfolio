@@ -16,11 +16,12 @@
            i am a mushroom >:D -->
 <html lang="en">
     <head>
-        <title>Nancy Zuo</title>
-        <link rel="shortcut icon" type="image/png" href="images/icons/apple.png"/>
+        <title>nancy zuo</title>
+        <link rel="shortcut icon" type="images/png" href="images/icons/apple.png"/>
         <link rel="stylesheet" href="styles.css">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+        <!-- I used fabricJS library for drawing onto the canvas -->
         <script src="js/fabric.js" type="text/javascript"></script>
 
         <!-- page loading fade in effect: https://www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/ -->
@@ -41,62 +42,18 @@
         </style>
       
     </head>
-    <!-- follow mouse from: https://www.youtube.com/watch?v=NSmZM89YCfE -->
+
     <body class="desktop">
-        <!-- <div class="wrap">
-            <div id="ball"></div>
-       </div> -->
-  
-       <!-- <script type="text/javascript">
-  
-       var $ = document.querySelector.bind(document);
-       var $on = document.addEventListener.bind(document);
-  
-       var xmouse, ymouse;
-       $on('mousemove', function (e) {
-            xmouse = e.clientX || e.pageX;
-            ymouse = e.clientY || e.pageY;
-       });
-  
-       var ball = $('#ball');
-       var x = void 0,
-            y = void 0,
-            dx = void 0,
-            dy = void 0,
-            tx = 0,
-            ty = 0,
-            key = -1;
-  
-       var followMouse = function followMouse() {
-            key = requestAnimationFrame(followMouse);
-  
-            if(!x || !y) {
-                 x = xmouse;
-                 y = ymouse;
-            } else {
-                 dx = (xmouse - x) * 0.125;
-                 dy = (ymouse - y) * 0.125;
-                 if(Math.abs(dx) + Math.abs(dy) < 0.1) {
-                      x = xmouse;
-                      y = ymouse;
-                 } else {
-                      x += dx;
-                      y += dy;
-                 }
-            }
-            ball.style.left = x + 'px';
-            ball.style.top = y + 'px';
-       };
-  
-       </script>
-         -->
+
+        <!-- apple icon and about page -->
         <div class="navbar">
             <div class="navbar-left">
                 <a href="index.html"><img src="images/icons/apple.png"></a>
                 <a href="desktop.html" class="dropdown"><strong>Nancy</strong></a>
                 <a href="#about" onclick="togglePopup3('nancyOS');" class="dropdown">About</a>
-                
             </div>
+
+            <!-- social medias on right and time that updates the current time (although a bit buggy depending on time) -->
             <div class="navbar-right">
                 <a href="https://twitter.com/zuo_nancy" target="_blank"><img src="images/icons/twitter.png"></a>
                 <a href="https://www.instagram.com/nc.zuo/" target="_blank"><img src="images/icons/instagram.png"></a>
@@ -104,6 +61,7 @@
                 <a href="mailto:nzzuo@andrew.cmu.edu" target="_blank"><img src="images/icons/email.png"></a>
                 <a href="#" id="current-date" class="dropdown"></a> <!--adds current date here from below script-->
 
+                <!-- script for getting the current time and formatting into the mac styling -->
                 <script>
                     // from: https://stackoverflow.com/questions/10211145/getting-current-date-and-time-in-javascript
                     var myDate = new Date();
@@ -152,6 +110,7 @@
         <!-- initialize canvas -->
         <canvas id="c10"></canvas>
 
+        <!-- script for drawing different icons onto canvas -->
         <script>
 
         // set canvas and set its width and height to browser's width + height
@@ -160,33 +119,33 @@
         canvas.setHeight(window.innerHeight);
         canvas.setWidth(window.innerWidth);
 
+        // folder for work
         var rect = new fabric.Rect({ left: 110, top: 110, width: 100, height: 80, rx:5, ry:5, fill:"#FCEDE8"});
         var text = new fabric.Text('Work', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 160, top: 210, originX: 'center', originY: 'center'});
         var group = new fabric.Group([rect, text], {left: 110, top: 110, lockMovementX: true, lockMovementY: true});
-
         canvas.add(group);
 
-        // group for play folder
+        // folder for play
         var rect2 = new fabric.Rect({ left: 110, top: 240, width: 100, height: 80, fill:"#FCEDE8", rx:5, ry:5 });
         var text2 = new fabric.Text('Play', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 160, top: 340, originX: 'center', originY: 'center'});
         var group2 = new fabric.Group([rect2, text2], {left: 110, top: 240, lockMovementX: true, lockMovementY: true});
         canvas.add(group2);
 
-        // group for resume
+        // pdf icon for resume
         var rect3 = new fabric.Rect({ left: 110, top: 370, fill: 'pink', width: 100, height: 80, fill:"#FCEDE8", rx:5, ry:5 });
         var text3 = new fabric.Text('Nancy_Resume.pdf', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 160, top: 470, originX: 'center', originY: 'center'});
         var group3 = new fabric.Group([rect3, text3], {left: 110, top: 370, lockMovementX: true, lockMovementY: true});
         canvas.add(group3);
 
+        // postit I had from before that I ended up not using
         // group for postit
         // var rect4 = new fabric.Rect({ left: 1000, top: 370, fill: 'white', width: 200, height: 180, strokeWidth: 2, rx:2, ry:2 });
         // var text4 = new fabric.Text('about me', {fill: "black", fontFamily: "Lucida Grande", fontStyle: "bold", fontSize: 14, left: 1100, top: 410, originX: 'center', originY: 'center'});
         // var group4 = new fabric.Group([rect4, text4], {left: 1000, top: 370});
         // canvas.add(group4);
 
+        // adds a folder icon image on top of the work folder rectangle
         fabric.Image.fromURL('images/icons/foldericon.png', function(img1) {
-        //i create an extra var for to change some image properties
-        // var img1 = myImg.set({ left: 1000, top: 370 ,width:150,height:150})
             img1.set({
                 left: 110,
                 top: 110,
@@ -200,9 +159,8 @@
             canvas.add(img1);
         });
 
+        // adds a folder icon image on top of the play folder rectangle
         fabric.Image.fromURL('images/icons/foldericon.png', function(img2) {
-        //i create an extra var for to change some image properties
-        // var img1 = myImg.set({ left: 1000, top: 370 ,width:150,height:150})
             img2.set({
                 left: 110,
                 top: 240,
@@ -216,10 +174,8 @@
             canvas.add(img2);
         });
 
-
+        // adds a pdf icon image on top of the pdf rectangle
         fabric.Image.fromURL('images/icons/pdf.png', function(img3) {
-        //i create an extra var for to change some image properties
-        // var img1 = myImg.set({ left: 1000, top: 370 ,width:150,height:150})
             img3.set({
                 left: 140,
                 top: 370,
@@ -233,118 +189,43 @@
             canvas.add(img3);
         });
 
+        // gets each object and gets rid of control border thing to allow users to resize/rotate icons on canvas
         canvas.forEachObject(function(o){ o.hasBorders = o.hasControls = false; });
 
-        canvas.hoverCursor = 'pointer';
-
-
-        // function animate(e, dir) {
-        //     if (e.target) {
-        //     fabric.util.animate({
-        //         // startValue: e.target.get('angle'),
-        //         // endValue: e.target.get('angle') + (dir ? 10 : -10),
-        //         duration: 100,
-        //         onChange: function(value) {
-        //         // e.target.setAngle(value);
-        //         canvas.renderAll();
-        //         },
-        //         onComplete: function() {
-        //         e.target.setCoords();
-        //         }
-        //     });
-        //     fabric.util.animate({
-        //         startValue: e.target.get('scaleX'),
-        //         endValue: e.target.get('scaleX') + (dir ? 0.1 : -0.1),
-        //         duration: 100,
-        //         onChange: function(value) {
-        //         e.target.scale(value);
-        //         canvas.renderAll();
-        //         },
-        //         onComplete: function() {
-        //         e.target.setCoords();
-        //         }
-        //     });
-        //     }
-        // }
-        // object.on('mouse:down', function(opt) {
-        //     // inside opt you found `e`
-        //     // you should be able to calculate where you clicked
-        //     var pointClicked = opt.target.canvas.getPointer(opt.e);
-        //     console.log(pointClicked);
-        // });
+        canvas.hoverCursor = 'pointer'; // changes to a pointer mouse when you hover over icons to show that you can click them
 
         canvas.on('mouse:down', function(e) {
-            // clicking on this is opens new tab for 'play'
+            // opens the window for 'work'
             if (e.target.top === 110) { 
-                // window.open('https://nancyzuo.me/work','_blank')
                 togglePopup("work");
-            // clicking on this opens new tab for 'play'
+            // opens the window for 'play'
             } else if (e.target.top === 240) {
                 togglePopup2("play");
-                // window.open('https://nancyzuo.me/play','_blank')
+            // opens a new tab for resume (hopefully will change to an embedded iframe in future)
             } else if (e.target.top === 370) {
-                // togglePopup("resume");
                 window.open('https://nancyzuo.me/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc9c6f3c8-dbac-4ecf-889a-56b3e05af70e%2FZuo_Nancy_Mar2021.pdf?table=block&id=7f6fe330-ff48-40e2-8a9a-64a2f47e157a&name=Nancy_Zuo_Resume.pdf&cache=v2', '_blank')
             }
 
         })
 
-    
-        canvas.renderAll()
+        // renders everything on to the canvas
+        canvas.renderAll();
 
         </script>
 
-          <!-- from: https://stackoverflow.com/questions/51409650/javascript-how-to-make-multiple-divs-draggable-and-movable-across-the-website -->
-        <!-- <script>
-            var draggableElements = document.getElementsByClassName("draggable");
-
-            for(var i = 0; i < draggableElements.length; i++){
-                dragElement(draggableElements[i]);
-            }
-
-            function dragElement(elmnt) {
-                var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-                if (document.getElementById(elmnt.id + "header")) {
-                    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-                } else {
-                    elmnt.onmousedown = dragMouseDown;
-                }
-                function dragMouseDown(e) {
-                    e = e || window.event;
-                    pos3 = parseInt(e.clientX);
-                    pos4 = parseInt(e.clientY);
-                    document.onmouseup = closeDragElement;
-                    document.onmousemove = elementDrag;
-                    return false;
-                }
-
-                function elementDrag(e) {
-                    e = e || window.event;
-                    pos1 = pos3 - parseInt(e.clientX);
-                    pos2 = pos4 - parseInt(e.clientY);
-                    pos3 = parseInt(e.clientX);
-                    pos4 = parseInt(e.clientY);
-                    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                    console.log(elmnt.offsetTop)
-                    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-                }
-
-                function closeDragElement() {
-                    document.onmouseup = null;
-                    document.onmousemove = null;
-                }
-
-                
-            }
-        </script>
-     -->
+        <!-- add popup with table inside for adding images and titles of projects -->
         <!-- from: https://www.youtube.com/watch?v=iE_6pQ3RlZU -->
         <div class="popup" id="popup-1">
             <div class="overlay"></div>
             <div class="content">
+
+                <!-- clicking the close button will toggle popup to close it -->
                 <div class="close-btn" onclick="togglePopup();">&times;</div>
+
+                <!-- title for the folder -->
                 <h2 id="folder-title"></h2>
-                <!-- <p id="folder-description"></p> -->
+
+                <!-- table for images of projects and name of projects -->
                 <div class="row">
                     <div class="column">
                         <div id="project-picture-1"></div>
@@ -362,14 +243,11 @@
                 <div class="row">
                     <div id="picture"></div>
                 </div>
-                
-              
-               
-       
             </div>
         </div>
 
         <script>
+            // popup for 'work folder' and puts innerhtml for the pictures and names and links
             function togglePopup(title) {
                 document.getElementById("popup-1").classList.toggle("active");
                 document.getElementById("folder-title").innerHTML = title;
@@ -381,6 +259,8 @@
                 document.getElementById("project-name-3").innerHTML="<span><a href = 'https://devpost.com/software/test-yotepg'  target= '_blank'>lARp</a></span>"
                 document.getElementById("picture").innerHTML = ""; // clear picture for non about page
             }
+
+            // popup for 'play folder' and puts innerhtml for pictures and names and links 
             function togglePopup2(title) {
                 document.getElementById("popup-1").classList.toggle("active");
                 document.getElementById("folder-title").innerHTML = title;
@@ -392,6 +272,8 @@
                 document.getElementById("project-name-3").innerHTML="<span><a href = 'https://nancyzuo.me/Flyer-Designs-39bc8770adbc4725867856676cc5fcdb'  target= '_blank'>fliers</a></span>"
                 document.getElementById("picture").innerHTML = ""; // clear picture for non about page
             }
+
+            // popup for the about page where it says nancyOS and some info about me with a picture of me (which clears when opening popup for other folders)
             function togglePopup3(title) {
                 document.getElementById("popup-1").classList.toggle("active");
                 document.getElementById("folder-title").innerHTML = title;
@@ -404,9 +286,11 @@
                 document.getElementById("picture").innerHTML="<img src=\"images/deadnancy.png\" width=\"80%\" height=\"80%\">";
             }
         </script>
-    <footer>
-        made with 🤍 by <strong>nancy.</strong>
-    </footer>
+
+        <!-- add a footer on bottom so can scroll to see it peep out -->
+        <footer>
+            made with 🤍 by <strong>nancy zuo. </strong>
+        </footer>
     </body>
 
 </html>
