@@ -1,0 +1,15 @@
+/* mobile styles */
+.no-mobile {
+    display: block;
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 100%;
+        background-color: #faf7f3;
+    }
+
+    .no-mobile {
+       display: none;
+    }
+}

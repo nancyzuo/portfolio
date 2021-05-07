@@ -21,6 +21,12 @@
         <link rel="stylesheet" href="styles.css">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+        <!-- new external link to css files for smartphones -->
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stylesmobile.css" />
+
+        <!-- lets browser know website is optimized for mobile -->
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
         <!-- I used fabricJS library for drawing onto the canvas -->
         <script src="js/fabric.js" type="text/javascript"></script>
 
@@ -47,7 +53,7 @@
 
         <!-- apple icon and about page -->
         <div class="navbar">
-            <div class="navbar-left">
+            <div class="navbar-left no-mobile">
                 <a href="index.html"><img src="images/icons/apple.png"></a>
                 <a href="desktop.html" class="dropdown"><strong>Nancy</strong></a>
                 <a href="#about" onclick="togglePopup3('nancyOS');" class="dropdown">About</a>
@@ -288,7 +294,7 @@
         </script>
 
         <!-- add a footer on bottom so can scroll to see it peep out -->
-        <footer>
+        <footer class="no-mobile">
             made with 🤍 by <strong>nancy zuo. </strong>
         </footer>
     </body>
